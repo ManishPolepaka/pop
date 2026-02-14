@@ -1,0 +1,412 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "title": "Mental & Emotional Strength",
+      "icon": "🧠",
+      "description": "Understand your emotional capacity and regulation",
+      "tone": "Calm, grounding, emotionally safe",
+      "role": "Emotional stabilizer",
+      "color": "bg-blue-100",
+      "questions": [
+        {
+          "id": 1,
+          "text": "What emotion shows up most often in your daily life?"
+        },
+        {
+          "id": 2,
+          "text": "When you feel overwhelmed, what does that feel like in your body?"
+        },
+        {
+          "id": 3,
+          "text": "What situation makes you feel most out of control emotionally?"
+        },
+        {
+          "id": 4,
+          "text": "When you feel stressed or upset, what actually helps you calm down?"
+        },
+        {
+          "id": 5,
+          "text": "Is there any emotion you try to push away or not feel?"
+        },
+        {
+          "id": 6,
+          "text": "How do people usually know you're struggling emotionally?"
+        },
+        {
+          "id": 7,
+          "text": "What emotion scares you the most or makes you uncomfortable?"
+        },
+        {
+          "id": 8,
+          "text": "Do you have someone safe to talk to about your feelings?"
+        },
+        {
+          "id": 9,
+          "text": "How long does it usually take you to feel better after something upsets you?"
+        },
+        {
+          "id": 10,
+          "text": "What would feeling emotionally strong look like for you?"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Self-Worth & Inner Safety",
+      "icon": "💚",
+      "description": "Understand self-belief and your inner dialogue",
+      "tone": "Gentle, reassuring, non-judgmental",
+      "role": "Inner ally",
+      "color": "bg-green-100",
+      "questions": [
+        {
+          "id": 1,
+          "text": "What's the main criticism you have about yourself?"
+        },
+        {
+          "id": 2,
+          "text": "When you make a mistake, what's your first thought about yourself?"
+        },
+        {
+          "id": 3,
+          "text": "Do you feel you need to achieve things to be worthy, or do you have worth already?"
+        },
+        {
+          "id": 4,
+          "text": "Who do you compare yourself to the most, and how does that make you feel?"
+        },
+        {
+          "id": 5,
+          "text": "What part of yourself do you try to hide from others?"
+        },
+        {
+          "id": 6,
+          "text": "When someone compliments you, what goes through your mind?"
+        },
+        {
+          "id": 7,
+          "text": "If you failed at something important, how would that change how you see yourself?"
+        },
+        {
+          "id": 8,
+          "text": "What did your family teach you about being good enough?"
+        },
+        {
+          "id": 9,
+          "text": "How much of your worth comes from what you achieve versus who you are?"
+        },
+        {
+          "id": 10,
+          "text": "What would it feel like to accept yourself exactly as you are right now?"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Goals & Life Direction",
+      "icon": "🎯",
+      "description": "Clarity on where you're heading and what matters",
+      "tone": "Curious, spacious, pressure-free",
+      "role": "Guide, not pusher",
+      "color": "bg-yellow-100",
+      "questions": [
+        {
+          "id": 1,
+          "text": "What do you actually want to be doing with your life? (Be honest, not what you should want)"
+        },
+        {
+          "id": 2,
+          "text": "What's stopping you from pursuing that right now?"
+        },
+        {
+          "id": 3,
+          "text": "Are you following your own goals or someone else's expectations?"
+        },
+        {
+          "id": 4,
+          "text": "If no one was judging you, what would you pursue?"
+        },
+        {
+          "id": 5,
+          "text": "What feels missing or wrong in your life currently?"
+        },
+        {
+          "id": 6,
+          "text": "Imagine your life in 5 years being really good. What does that look like?"
+        },
+        {
+          "id": 7,
+          "text": "What success would you regret NOT going for?"
+        },
+        {
+          "id": 8,
+          "text": "What's one thing you know you should do but keep avoiding?"
+        },
+        {
+          "id": 9,
+          "text": "How clear are you on what actually matters to you versus what you've been told matters?"
+        },
+        {
+          "id": 10,
+          "text": "What would change if you gave yourself permission to want what you want?"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Decision-Making & Thinking Style",
+      "icon": "🤔",
+      "description": "Understand your mental patterns and how you think",
+      "tone": "Respectful, reflective",
+      "role": "Thought partner",
+      "color": "bg-purple-100",
+      "questions": [
+        {
+          "id": 1,
+          "text": "What decision are you struggling with right now?"
+        },
+        {
+          "id": 2,
+          "text": "Why is this decision hard? What are you worried might happen?"
+        },
+        {
+          "id": 3,
+          "text": "How much information do you need before you feel ready to decide?"
+        },
+        {
+          "id": 4,
+          "text": "Do you trust your own judgment, or do you doubt yourself?"
+        },
+        {
+          "id": 5,
+          "text": "When you've made decisions before, do you stick with them or second-guess?"
+        },
+        {
+          "id": 6,
+          "text": "What's the worst thing you think could happen if you choose wrong?"
+        },
+        {
+          "id": 7,
+          "text": "Are you waiting for the perfect choice, or willing to choose even if it's not perfect?"
+        },
+        {
+          "id": 8,
+          "text": "Who influences your decisions the most - you or others?"
+        },
+        {
+          "id": 9,
+          "text": "Looking back, have your 'bad' decisions actually been as bad as you feared?"
+        },
+        {
+          "id": 10,
+          "text": "What decision would change your life if you finally made it?"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Energy & Daily Life",
+      "icon": "⚡",
+      "description": "Understand your lifestyle and what drains/energizes you",
+      "tone": "Practical, compassionate",
+      "role": "System designer",
+      "color": "bg-orange-100",
+      "questions": [
+        {
+          "id": 1,
+          "text": "What's draining your energy the most right now?"
+        },
+        {
+          "id": 2,
+          "text": "What genuinely refills or restores you?"
+        },
+        {
+          "id": 3,
+          "text": "How much sleep and rest are you getting versus what you actually need?"
+        },
+        {
+          "id": 4,
+          "text": "What are you saying yes to that you actually want to say no to?"
+        },
+        {
+          "id": 5,
+          "text": "When was the last time you felt rested and energized?"
+        },
+        {
+          "id": 6,
+          "text": "What are you doing out of obligation versus what you actually want to do?"
+        },
+        {
+          "id": 7,
+          "text": "Do you have time for things that matter to you, or is it all just survival mode?"
+        },
+        {
+          "id": 8,
+          "text": "What would change if you actually prioritized your own needs?"
+        },
+        {
+          "id": 9,
+          "text": "What's one thing you would stop doing if you could?"
+        },
+        {
+          "id": 10,
+          "text": "What would sustainable energy and balance actually look like for you?"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Support, Connection & Safety",
+      "icon": "🤝",
+      "description": "Understand your relationships and support system",
+      "tone": "Warm, validating",
+      "role": "Secure base",
+      "color": "bg-pink-100",
+      "questions": [
+        {
+          "id": 1,
+          "text": "Who do you feel most and least connected to right now?"
+        },
+        {
+          "id": 2,
+          "text": "What makes it hard for you to be close to people?"
+        },
+        {
+          "id": 3,
+          "text": "Have you been hurt in relationships before? How does that affect you now?"
+        },
+        {
+          "id": 4,
+          "text": "What do you need from others that you're not getting?"
+        },
+        {
+          "id": 5,
+          "text": "Do you tend to push people away or hold on too tight?"
+        },
+        {
+          "id": 6,
+          "text": "How safe do you feel being your real self with others?"
+        },
+        {
+          "id": 7,
+          "text": "What do you wish someone understood about you?"
+        },
+        {
+          "id": 8,
+          "text": "When you need support, do you ask for it or suffer alone?"
+        },
+        {
+          "id": 9,
+          "text": "What would real connection look like for you?"
+        },
+        {
+          "id": 10,
+          "text": "What's one relationship you'd like to improve, and what's in the way?"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Meaning, Values & Life Purpose",
+      "icon": "✨",
+      "description": "Understand what gives your life meaning and purpose",
+      "tone": "Slow, deep, respectful",
+      "role": "Witness",
+      "color": "bg-indigo-100",
+      "questions": [
+        {
+          "id": 1,
+          "text": "What gives your life meaning right now? (If nothing, what used to?)"
+        },
+        {
+          "id": 2,
+          "text": "Do you feel your life matters, or does it feel empty?"
+        },
+        {
+          "id": 3,
+          "text": "What do you believe you're here on earth to do or become?"
+        },
+        {
+          "id": 4,
+          "text": "Are you living in alignment with what's important to you?"
+        },
+        {
+          "id": 5,
+          "text": "What would you do with your life if you knew you couldn't fail?"
+        },
+        {
+          "id": 6,
+          "text": "Who or what do you want to help or contribute to?"
+        },
+        {
+          "id": 7,
+          "text": "What part of yourself do you hide to fit in or be accepted?"
+        },
+        {
+          "id": 8,
+          "text": "When was the last time you felt like you were exactly where you needed to be?"
+        },
+        {
+          "id": 9,
+          "text": "What impact or legacy do you want to leave behind?"
+        },
+        {
+          "id": 10,
+          "text": "What would it take for you to feel like your life was truly lived?"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Habit Breaking & Change",
+      "icon": "🔄",
+      "description": "Understand your patterns and ability to change behaviors",
+      "tone": "Supportive, non-judgmental, action-oriented",
+      "role": "Change catalyst",
+      "color": "bg-orange-100",
+      "questions": [
+        {
+          "id": 1,
+          "text": "What specific behavior do you want to change or break?"
+        },
+        {
+          "id": 2,
+          "text": "How long has this been a struggle for you?"
+        },
+        {
+          "id": 3,
+          "text": "What does this habit give you that you're not getting elsewhere?"
+        },
+        {
+          "id": 4,
+          "text": "What have you tried before to break it, and why didn't it work?"
+        },
+        {
+          "id": 5,
+          "text": "What's the real cost of this habit to your life?"
+        },
+        {
+          "id": 6,
+          "text": "When does the urge hit strongest? What's happening right before?"
+        },
+        {
+          "id": 7,
+          "text": "How do you feel about yourself because of this habit?"
+        },
+        {
+          "id": 8,
+          "text": "Do you believe you can actually change this, or does it feel impossible?"
+        },
+        {
+          "id": 9,
+          "text": "What would you need - structure, accountability, tools, or something else?"
+        },
+        {
+          "id": 10,
+          "text": "If you broke this habit, what would actually change in your life?"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+[
+  {
+    "content": "Why do you check your phone when nothing new is there?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["curiosity", "habit", "awareness"],
+    "isActive": true
+  },
+  {
+    "content": "What are you actually waiting for?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["curiosity", "intention"],
+    "isActive": true
+  },
+  {
+    "content": "If scrolling worked, wouldn't you be satisfied by now?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["curiosity", "satisfaction"],
+    "isActive": true
+  },
+  {
+    "content": "What problem are you avoiding right now?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["avoidance", "self-awareness"],
+    "isActive": true
+  },
+  {
+    "content": "What thought keeps returning when things go quiet?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["silence", "introspection"],
+    "isActive": true
+  },
+  {
+    "content": "What does your phone usage say about your life right now?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["self-awareness", "reflection"],
+    "isActive": true
+  },
+  {
+    "content": "Are you bored… or afraid to be alone with your thoughts?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["fear", "emotions"],
+    "isActive": true
+  },
+  {
+    "content": "What feeling made you pick up the phone this time?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["emotions", "triggers"],
+    "isActive": true
+  },
+  {
+    "content": "If someone copied your daily habits, would you admire them?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["identity", "values"],
+    "isActive": true
+  },
+  {
+    "content": "When did you last choose focus over comfort?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["discipline", "choice"],
+    "isActive": true
+  },
+  {
+    "content": "Where is your attention going — and where is your life going?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["attention", "life-direction"],
+    "isActive": true
+  },
+  {
+    "content": "If today repeated for 5 years, would you be okay with that?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["time", "meaning"],
+    "isActive": true
+  },
+  {
+    "content": "What did you do last week that actually mattered?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["reflection", "meaning"],
+    "isActive": true
+  },
+  {
+    "content": "Are you spending time… or losing it?",
+    "category": "thought",
+    "difficulty": 3,
+    "tags": ["time", "awareness"],
+    "isActive": true
+  },
+  {
+    "content": "What will you wish you had focused on more?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["future", "regret-prevention"],
+    "isActive": true
+  },
+  {
+    "content": "Is this how the person you respect lives?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["identity", "values"],
+    "isActive": true
+  },
+  {
+    "content": "Are you a consumer… or a creator?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["identity", "purpose"],
+    "isActive": true
+  },
+  {
+    "content": "What kind of life requires less distraction?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["life-design", "focus"],
+    "isActive": true
+  },
+  {
+    "content": "What version of yourself are you feeding right now?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["self-development", "habits"],
+    "isActive": true
+  },
+  {
+    "content": "Who are you becoming, one scroll at a time?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["identity", "consequences"],
+    "isActive": true
+  },
+  {
+    "content": "Why does more information make you feel more confused?",
+    "category": "thought",
+    "difficulty": 5,
+    "tags": ["paradox", "clarity"],
+    "isActive": true
+  },
+  {
+    "content": "Why does rest with a phone feel exhausting?",
+    "category": "thought",
+    "difficulty": 5,
+    "tags": ["paradox", "rest"],
+    "isActive": true
+  },
+  {
+    "content": "If distraction made you happy, wouldn't you feel fulfilled?",
+    "category": "thought",
+    "difficulty": 5,
+    "tags": ["paradox", "happiness"],
+    "isActive": true
+  },
+  {
+    "content": "Why do you escape when nothing is chasing you?",
+    "category": "thought",
+    "difficulty": 5,
+    "tags": ["paradox", "escape"],
+    "isActive": true
+  },
+  {
+    "content": "What if comfort is the real problem?",
+    "category": "thought",
+    "difficulty": 5,
+    "tags": ["paradox", "comfort"],
+    "isActive": true
+  },
+  {
+    "content": "What are you avoiding?",
+    "category": "thought",
+    "difficulty": 3,
+    "tags": ["silence", "avoidance"],
+    "isActive": true
+  },
+  {
+    "content": "What matters right now?",
+    "category": "thought",
+    "difficulty": 3,
+    "tags": ["silence", "priorities"],
+    "isActive": true
+  },
+  {
+    "content": "Why not focus?",
+    "category": "thought",
+    "difficulty": 3,
+    "tags": ["silence", "focus"],
+    "isActive": true
+  },
+  {
+    "content": "What are you trading your attention for?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["silence", "trade-offs"],
+    "isActive": true
+  },
+  {
+    "content": "What are you becoming?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["silence", "identity"],
+    "isActive": true
+  },
+  {
+    "content": "What problem are you here to solve?",
+    "category": "thought",
+    "difficulty": 5,
+    "tags": ["existential", "purpose"],
+    "isActive": true
+  },
+  {
+    "content": "If your life had a theme, what would it be?",
+    "category": "thought",
+    "difficulty": 5,
+    "tags": ["existential", "meaning"],
+    "isActive": true
+  },
+  {
+    "content": "What would make today feel meaningful?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["existential", "meaning"],
+    "isActive": true
+  },
+  {
+    "content": "What would you do if you weren't afraid?",
+    "category": "thought",
+    "difficulty": 5,
+    "tags": ["existential", "fear"],
+    "isActive": true
+  },
+  {
+    "content": "What deserves your full attention?",
+    "category": "thought",
+    "difficulty": 4,
+    "tags": ["existential", "priorities"],
+    "isActive": true
+  }
+]
