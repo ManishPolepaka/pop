@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signUp, signInWithGoogle } from "@/firebase/auth";
-import { Mail, Lock, UserPlus, Loader, ArrowLeft, User } from "lucide-react";
+import { consumeGoogleAuthFlow, signUp, signInWithGoogle } from "@/firebase/auth";
+import { useAuth } from "@/contexts/AuthContext";
+import { Mail, Lock, UserPlus, Loader, User } from "lucide-react";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -11,6 +12,19 @@ const SignUp = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { user, loading: authLoading } = useAuth();
+
+  useEffect(() => {
+    if (authLoading || !user) return;
+
+    const pendingFlow = consumeGoogleAuthFlow();
+    if (pendingFlow === "signup") {
+      navigate("/username-setup", { replace: true });
+      return;
+    }
+
+    navigate("/main", { replace: true });
+  }, [authLoading, navigate, user]);
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,15 +81,12 @@ const SignUp = () => {
     setLoading(true);
 
     try {
-      const result = await signInWithGoogle();
-      if (result) {
-        // On signup, always go to username setup for Google users
-        // (whether new or returning, they should set their username)
-        navigate("/username-setup", { replace: true });
-      } else {
-        setError("Google sign-up failed");
-        setLoading(false);
+      const result = await signInWithGoogle("signup");
+      if (!result) {
+        return;
       }
+
+      navigate("/username-setup", { replace: true });
     } catch (err) {
       const error = err as Error;
       setError(error.message || "Google sign-up failed");
@@ -91,20 +102,12 @@ const SignUp = () => {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-black/5 rounded-full blur-3xl opacity-20" />
       </div>
 
-      {/* Back Button */}
-      <button
-        onClick={() => navigate("/")}
-        className="fixed top-6 left-6 flex items-center justify-center h-10 w-10 bg-white/20 hover:bg-white/40 transition-all duration-300 group font-bold z-50 border-2 border-black"
-      >
-        <ArrowLeft className="h-5 w-5 text-black group-hover:translate-x-1 transition-transform" />
-      </button>
-
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
         <div className="w-full max-w-md">
 
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-5xl font-black text-black mb-2">Diverto</h1>
+            <h1 className="text-5xl font-black text-black mb-2">Pop</h1>
             <p className="text-black/70 text-lg">Create your account</p>
           </div>
 

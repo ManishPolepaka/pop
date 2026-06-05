@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -75,9 +75,24 @@
     @apply border-border;
   }
 
+  html {
+    height: 100%;
+    /* Prevent elastic bounce scroll on iOS at page level */
+    overscroll-behavior: none;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* Mobile: remove tap flash (Android) */
+    -webkit-tap-highlight-color: transparent;
+    /* Mobile: prevent callout popup on long-press (iOS) */
+    -webkit-touch-callout: none;
+    /* Mobile: prevent font size bump on orientation change (iOS) */
+    -webkit-text-size-adjust: 100%;
+    /* Prevent pull-to-refresh / overscroll bounce in the app shell */
+    overscroll-behavior-y: none;
   }
 }
 
@@ -99,6 +114,21 @@
 
   .shadow-hero {
     box-shadow: 0 20px 60px -15px hsl(0 0% 0% / 0.3);
+  }
+
+  /* ── Safe area utilities (notch / home indicator on iPhone & Android) ── */
+  /* Add .pt-safe to any sticky/fixed top element so content clears the notch */
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  /* Add .pb-safe to any fixed bottom element so it clears the home indicator */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  /* Use on the scrollable content container behind a fixed bottom nav.
+     5rem (pb-20 baseline) + safe area = enough clearance on all devices. */
+  .pb-safe-content {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
   }
 }
 
@@ -128,6 +158,33 @@
   20%, 40%, 60%, 80% { transform: translateX(4px); }
 }
 
+@keyframes pop-entry-bounce {
+  0% {
+    transform: translateY(20px) scale(0.96);
+    opacity: 0;
+  }
+  18% {
+    transform: translateY(-14px) scale(1.01);
+    opacity: 1;
+  }
+  34% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.005);
+  }
+  66% {
+    transform: translateY(0) scale(1);
+  }
+  80% {
+    transform: translateY(-4px) scale(1.002);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
@@ -138,4 +195,41 @@
 
 .animate-shake {
   animation: shake 0.5s ease-in-out;
+}
+
+.animate-pop-entry-bounce {
+  animation: pop-entry-bounce 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1;
+}
+
+/* Classic theme (older, high-contrast yellow style) */
+body.theme-classic .bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, #fde047, #facc15, #facc15) !important;
+}
+
+body.theme-classic .bg-yellow-50 {
+  background-color: #fef9c3 !important;
+}
+
+body.theme-classic .bg-yellow-100 {
+  background-color: #fef08a !important;
+}
+
+body.theme-classic .bg-yellow-200 {
+  background-color: #fde047 !important;
+}
+
+body.theme-classic .bg-yellow-300 {
+  background-color: #facc15 !important;
+}
+
+body.theme-classic .border-black\/10,
+body.theme-classic .border-black\/15,
+body.theme-classic .border-black\/20,
+body.theme-classic .border-black\/25,
+body.theme-classic .border-black\/30 {
+  border-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+body.theme-classic .rounded-2xl {
+  border-radius: 0.75rem !important;
 }

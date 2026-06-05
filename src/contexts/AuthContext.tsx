@@ -1,10 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { User, onAuthStateChanged } from "firebase/auth";
-import { auth } from "@/firebase/config";
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "@/firebase/config";
 import { logOut as firebaseLogOut } from "@/firebase/auth";
 
 interface AuthContextType {
   user: User | null;
+  role: string | null;
   loading: boolean;
   logout: () => Promise<void>;
 }
@@ -15,6 +17,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [role, setRole] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,10 +28,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
           // If user was deleted, this will fail or throw an error
           await currentUser.getIdToken(true);
           setUser(currentUser);
+
+          // Fetch role from Firestore
+          const userDoc = await getDoc(doc(db, "users", currentUser.uid));
+          setRole(userDoc.exists() ? (userDoc.data().role ?? "user") : "user");
         } catch (error) {
           console.warn("User verification failed - logging out:", error);
           // User was deleted or has invalid token
           setUser(null);
+          setRole(null);
           try {
             await firebaseLogOut();
           } catch {
@@ -37,6 +45,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         }
       } else {
         setUser(null);
+        setRole(null);
       }
       setLoading(false);
     });
@@ -47,7 +56,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   // No periodic verification needed - Firebase handles token refresh automatically
 
   return (
-    <AuthContext.Provider value={{ user, loading, logout: firebaseLogOut }}>
+    <AuthContext.Provider value={{ user, role, loading, logout: firebaseLogOut }}>
       {children}
     </AuthContext.Provider>
   );

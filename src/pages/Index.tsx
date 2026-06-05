@@ -3,23 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { logOut } from "@/firebase/auth";
-import NotificationPopup from "@/components/NotificationPopup";
-import { useReminders } from "@/hooks/useReminders";
 
 const Index = () => {
   const navigate = useNavigate();
-  const { user, loading } = useAuth();
-  const {
-    activeNotification,
-    dismissNotification,
-  } = useReminders();
-
-  // Redirect authenticated users to main page
+  const { user, role, loading } = useAuth();
+  // Redirect authenticated users — admins go to their dashboard, others to main
   useEffect(() => {
     if (user && !loading) {
-      navigate("/main", { replace: true });
+      navigate(role === "admin" ? "/admin/feedback" : "/main", { replace: true });
     }
-  }, [user, loading, navigate]);
+  }, [user, role, loading, navigate]);
 
   const goToReminders = () => {
     navigate("/reminders");
@@ -32,14 +25,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {activeNotification && (
-        <NotificationPopup
-          message={activeNotification.message}
-          popContent={activeNotification.popContent}
-          onDismiss={dismissNotification}
-        />
-      )}
-
       {/* Hero Section */}
       <section className="min-h-screen bg-primary relative flex flex-col items-center justify-center px-4 overflow-hidden">
         {/* Decorative elements */}

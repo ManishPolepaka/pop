@@ -1,50 +1,45 @@
-import { Loader } from "lucide-react";
-import { useState } from "react";
 import AddReminderForm from "@/components/AddReminderForm";
 import ReminderCard from "@/components/ReminderCard";
-import NotificationPopup from "@/components/NotificationPopup";
-import { useReminders } from "@/hooks/useFirebaseReminders";
-import { useAuth } from "@/contexts/AuthContext";
+import { Reminder } from "@/hooks/useFirebaseReminders";
+import { ReminderFilterType } from "./Main";
 
-const Reminders = () => {
-  const { user } = useAuth();
-  const {
-    reminders,
-    activeNotification,
-    addReminder,
-    deleteReminder,
-    dismissNotification,
-    loading: remindersLoading,
-  } = useReminders();
+interface RemindersProps {
+  reminders: Reminder[];
+  addReminder: (time: { type: "recurring" | "schedule"; value: string; interval?: number; days?: number[]; name?: string; repeatMode?: "once" | "daily" | "weekly"; intentType?: "break-distraction" | "stay-productive" } | string) => Promise<void>;
+  deleteReminder: (id: string) => Promise<void>;
+  loading: boolean;
+  reminderTypeFilter: ReminderFilterType;
+  onReminderTypeFilterChange: (type: ReminderFilterType) => void;
+}
+
+const Reminders = ({ reminders, addReminder, deleteReminder, loading, reminderTypeFilter, onReminderTypeFilterChange }: RemindersProps) => {
+
+  // Filter reminders based on selected type
+  const filteredReminders = reminders.filter(reminder => reminder.type === reminderTypeFilter);
+  const remindersTitle = reminderTypeFilter === "recurring" ? "Recurring POPs" : "Scheduled POPs";
 
   return (
-    <div className="min-h-screen bg-yellow-300 overflow-hidden">
-      {activeNotification && (
-        <NotificationPopup
-          message={activeNotification.message}
-          popContent={activeNotification.popContent}
-          onDismiss={dismissNotification}
-        />
-      )}
-
+    <div className="min-h-screen bg-gradient-to-b from-yellow-300 via-yellow-200 to-yellow-200 overflow-hidden">
       {/* Main Content */}
-      <section className="relative z-10 py-4 px-5">
-        <div>
+      <section className="relative z-10 py-2">
+        <div className="w-full max-w-md mx-auto space-y-5">
           {/* Section Header */}
-          <div className="mb-6">
+          <div>
             <h2 className="text-4xl font-black text-black mb-2">
               Create a Self POP
             </h2>
-            <p className="text-black/70">
+            <p className="text-black/75 font-medium">
               Set times to receive meaningful questions
             </p>
           </div>
 
           {/* Add Reminder Form */}
-          <div className="bg-white border-4 border-black p-8 mb-8">
-              <AddReminderForm onAdd={(time) => {
+          <div className="bg-yellow-100 rounded-2xl border border-black/15 p-6 shadow-sm">
+              <AddReminderForm 
+                onReminderTypeChange={onReminderTypeFilterChange}
+                onAdd={(time) => {
                 if (typeof time === "string") {
-                  addReminder({ type: "one-time", value: time });
+                  addReminder({ type: "schedule", value: time });
                 } else {
                   addReminder(time);
                 }
@@ -53,28 +48,32 @@ const Reminders = () => {
 
           {/* Reminders List Section */}
           <div>
-            <h3 className="text-3xl font-black text-black mb-6 flex items-center gap-3">
-              Scheduled Self POPs
-              {reminders.length > 0 && (
-                <span className="inline-flex items-center justify-center h-8 w-8 bg-yellow-600 text-white text-sm font-bold">
-                  {reminders.length}
+            <h3 className="text-3xl font-black text-black mb-4 flex items-center gap-3">
+              {remindersTitle}
+              {filteredReminders.length > 0 && (
+                <span className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-black text-yellow-300 text-sm font-bold">
+                  {filteredReminders.length}
                 </span>
               )}
             </h3>
 
-            {reminders.length === 0 ? (
-              <div className="bg-gray-50 border border-gray-200 p-12 text-center">
-                <p className="text-gray-700 font-medium text-lg">
-                  No reminders yet
+            {loading ? (
+              <div className="bg-yellow-100 rounded-2xl border border-black/15 p-8 text-center shadow-sm">
+                <p className="text-black font-black text-lg">Loading reminders...</p>
+              </div>
+            ) : filteredReminders.length === 0 ? (
+              <div className="bg-yellow-100 rounded-2xl border border-black/15 p-8 text-center shadow-sm">
+                <p className="text-black font-black text-lg">
+                  No {reminderTypeFilter} reminders yet
                 </p>
-                <p className="text-gray-500 mt-2">
-                  Create your first reminder above to get started
+                <p className="text-black/50 font-semibold mt-2 text-sm">
+                  Create your first {reminderTypeFilter} reminder above
                 </p>
               </div>
             ) : (
               <div className="space-y-3">
-                {reminders.map((reminder) => (
-                  <div key={reminder.id} className="bg-white border border-gray-200 p-6 transition-shadow">
+                {filteredReminders.map((reminder) => (
+                  <div key={reminder.id} className="bg-yellow-100 rounded-2xl border border-black/15 p-5 shadow-sm">
                     <ReminderCard
                       reminder={reminder}
                       onDelete={deleteReminder}

@@ -1,6 +1,15 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import {
+  browserLocalPersistence,
+  browserPopupRedirectResolver,
+  browserSessionPersistence,
+  getAuth,
+  indexedDBLocalPersistence,
+  initializeAuth,
+  type Auth,
+} from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { Capacitor } from "@capacitor/core";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCWgX8hbsfFccykM6IRDmgXgBoXb_YCxI",
@@ -12,13 +21,30 @@ const firebaseConfig = {
   measurementId: "G-9X21BV904Q",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase Authentication and get a reference to the service
-export const auth = getAuth(app);
+const createAuth = (): Auth => {
+  try {
+    if (Capacitor.isNativePlatform()) {
+      return initializeAuth(app, {
+        persistence: indexedDBLocalPersistence,
+      });
+    }
 
-// Initialize Cloud Firestore and get a reference to the service
+    return initializeAuth(app, {
+      persistence: [
+        indexedDBLocalPersistence,
+        browserLocalPersistence,
+        browserSessionPersistence,
+      ],
+      popupRedirectResolver: browserPopupRedirectResolver,
+    });
+  } catch {
+    return getAuth(app);
+  }
+};
+
+export const auth = createAuth();
 export const db = getFirestore(app);
 
 export default app;

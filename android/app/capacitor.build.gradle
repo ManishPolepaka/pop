@@ -9,10 +9,13 @@ android {
 
 apply from: "../capacitor-cordova-android-plugins/cordova.variables.gradle"
 dependencies {
-
-
+    implementation project(':capacitor-firebase-authentication')
+    implementation project(':capacitor-app')
+    implementation project(':capacitor-local-notifications')
+    implementation "androidx.browser:browser:1.8.0"
 }
-
+apply from: "../../node_modules/cordova-plugin-browsertab/src/android/BrowserTab.gradle"
+apply from: "../../node_modules/cordova-plugin-buildinfo/src/android/BuildInfo.gradle"
 
 if (hasProperty('postBuildExtras')) {
   postBuildExtras()

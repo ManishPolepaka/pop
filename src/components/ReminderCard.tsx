@@ -1,11 +1,15 @@
 import { Clock, Repeat2, Trash2 } from "lucide-react";
+import { parseReminderTime } from "@/lib/reminderScheduler";
 
 interface Reminder {
   id: string;
   time: string;
   message: string;
-  type?: "one-time" | "recurring";
+  name?: string;
+  type?: "schedule" | "recurring";
   interval?: number;
+  days?: number[];
+  repeatMode?: "once" | "daily" | "weekly";
 }
 
 interface ReminderCardProps {
@@ -16,10 +20,15 @@ interface ReminderCardProps {
 const ReminderCard = ({ reminder, onDelete }: ReminderCardProps) => {
   const formatTime = (time: string) => {
     if (!time) return "Not set";
-    const [hours, minutes] = time.split(":");
-    const hour = parseInt(hours);
-    const ampm = hour >= 12 ? "PM" : "AM";
-    const displayHour = hour % 12 || 12;
+
+    const parsed = parseReminderTime(time);
+    if (!parsed) {
+      return time;
+    }
+
+    const ampm = parsed.hours >= 12 ? "PM" : "AM";
+    const displayHour = parsed.hours % 12 || 12;
+    const minutes = parsed.minutes.toString().padStart(2, "0");
     return `${displayHour}:${minutes} ${ampm}`;
   };
 
@@ -27,7 +36,26 @@ const ReminderCard = ({ reminder, onDelete }: ReminderCardProps) => {
     if (reminder.type === "recurring" && reminder.interval) {
       return `Every ${reminder.interval} minute${reminder.interval > 1 ? "s" : ""}`;
     }
-    return formatTime(reminder.time);
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const timeStr = formatTime(reminder.time);
+    const repeatMode = reminder.repeatMode || "once";
+    
+    if (repeatMode === "daily") {
+      return `${timeStr} (Daily)`;
+    } else if (repeatMode === "weekly") {
+      if (reminder.days && reminder.days.length > 0) {
+        const daysStr = reminder.days.map(d => dayNames[d]).join(", ");
+        return `${timeStr} (Weekly: ${daysStr})`;
+      }
+      return `${timeStr} (Weekly)`;
+    } else {
+      // once
+      if (reminder.days && reminder.days.length > 0) {
+        const daysStr = reminder.days.map(d => dayNames[d]).join(", ");
+        return `${timeStr} (Once on ${daysStr})`;
+      }
+      return `${timeStr} (Once)`;
+    }
   };
 
   const getIcon = () => {
@@ -48,7 +76,7 @@ const ReminderCard = ({ reminder, onDelete }: ReminderCardProps) => {
             {getDisplayText()}
           </p>
           <p className="text-black/70 text-sm mt-0.5 line-clamp-2">
-            {reminder.message || "Reminder"}
+            {reminder.name || reminder.message || "Reminder"}
           </p>
         </div>
       </div>

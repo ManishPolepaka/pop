@@ -8,6 +8,15 @@
 
 There are several ways of editing your application.
 
+User Answers → 12 questions completed ✅
+Signal Extraction → 27 distinct signals identified from answers ✅
+Pattern Detection → 4-5 psychological patterns recognized ✅
+User State Classification → Primary barrier identified + secondary factors extracted ✅
+Barrier-Specific Practices → 3-4 tailored practices generated dynamically ✅
+Narrative Generation → Personalized explanation of why these practices match their barrier ✅
+Report Ready → Full data quality assessment included ✅
+Test Results: ✅
+
 **Use Lovable**
 
 Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.

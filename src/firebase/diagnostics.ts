@@ -18,12 +18,12 @@ export interface PatternAnalysis {
 }
 
 export interface AIInsight {
-  heard: string;
-  commonSenseReframe: string;
+  situation: string;
+  contradictions: string;
+  patterns: string;
   blindSpot: string;
-  pattern: string;
   meaning: string;
-  help: string;
+  questions: string;
 }
 
 export interface Breakthrough {
@@ -43,6 +43,26 @@ export interface DiagnosticAnswer {
 }
 
 /**
+ * Sanitize object for Firestore by removing undefined values
+ */
+const sanitizeForFirestore = (obj: any): any => {
+  if (obj === null || obj === undefined) return null;
+  if (Array.isArray(obj)) {
+    return obj.map(sanitizeForFirestore).filter((item) => item !== undefined);
+  }
+  if (typeof obj === "object") {
+    const sanitized: any = {};
+    for (const [key, value] of Object.entries(obj)) {
+      if (value !== undefined) {
+        sanitized[key] = sanitizeForFirestore(value);
+      }
+    }
+    return sanitized;
+  }
+  return obj;
+};
+
+/**
  * Save diagnostic with full insights (patterns + AI analysis)
  */
 export const saveDiagnosticWithInsights = async (
@@ -54,17 +74,34 @@ export const saveDiagnosticWithInsights = async (
   aiInsight: AIInsight
 ): Promise<string> => {
   try {
+    const docData = {
+      categoryId,
+      categoryTitle,
+      answers: answers || [],
+      patterns: {
+        sentiment: patterns.sentiment || "neutral",
+        intensity: patterns.intensity || "medium",
+        keywords: patterns.keywords || [],
+        themes: patterns.themes || [],
+      },
+      aiInsight: {
+        situation: aiInsight.situation || "",
+        contradictions: aiInsight.contradictions || "",
+        patterns: aiInsight.patterns || "",
+        blindSpot: aiInsight.blindSpot || "",
+        meaning: aiInsight.meaning || "",
+        questions: aiInsight.questions || "",
+      },
+      breakthroughs: [],
+      completedAt: Timestamp.now(),
+    };
+
+    // Sanitize to remove any undefined values
+    const sanitizedData = sanitizeForFirestore(docData);
+
     const docRef = await addDoc(
       collection(db, `users/${userId}/diagnostics`),
-      {
-        categoryId,
-        categoryTitle,
-        answers,
-        patterns,
-        aiInsight,
-        breakthroughs: [],
-        completedAt: Timestamp.now(),
-      }
+      sanitizedData
     );
     return docRef.id;
   } catch (error) {

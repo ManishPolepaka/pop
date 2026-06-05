@@ -1,247 +1,72 @@
 [
-  {
-    "content": "Why do you check your phone when nothing new is there?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["curiosity", "habit", "awareness"],
-    "isActive": true
-  },
-  {
-    "content": "What are you actually waiting for?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["curiosity", "intention"],
-    "isActive": true
-  },
-  {
-    "content": "If scrolling worked, wouldn't you be satisfied by now?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["curiosity", "satisfaction"],
-    "isActive": true
-  },
-  {
-    "content": "What problem are you avoiding right now?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["avoidance", "self-awareness"],
-    "isActive": true
-  },
-  {
-    "content": "What thought keeps returning when things go quiet?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["silence", "introspection"],
-    "isActive": true
-  },
-  {
-    "content": "What does your phone usage say about your life right now?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["self-awareness", "reflection"],
-    "isActive": true
-  },
-  {
-    "content": "Are you bored… or afraid to be alone with your thoughts?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["fear", "emotions"],
-    "isActive": true
-  },
-  {
-    "content": "What feeling made you pick up the phone this time?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["emotions", "triggers"],
-    "isActive": true
-  },
-  {
-    "content": "If someone copied your daily habits, would you admire them?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["identity", "values"],
-    "isActive": true
-  },
-  {
-    "content": "When did you last choose focus over comfort?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["discipline", "choice"],
-    "isActive": true
-  },
-  {
-    "content": "Where is your attention going — and where is your life going?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["attention", "life-direction"],
-    "isActive": true
-  },
-  {
-    "content": "If today repeated for 5 years, would you be okay with that?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["time", "meaning"],
-    "isActive": true
-  },
-  {
-    "content": "What did you do last week that actually mattered?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["reflection", "meaning"],
-    "isActive": true
-  },
-  {
-    "content": "Are you spending time… or losing it?",
-    "category": "thought",
-    "difficulty": 3,
-    "tags": ["time", "awareness"],
-    "isActive": true
-  },
-  {
-    "content": "What will you wish you had focused on more?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["future", "regret-prevention"],
-    "isActive": true
-  },
-  {
-    "content": "Is this how the person you respect lives?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["identity", "values"],
-    "isActive": true
-  },
-  {
-    "content": "Are you a consumer… or a creator?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["identity", "purpose"],
-    "isActive": true
-  },
-  {
-    "content": "What kind of life requires less distraction?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["life-design", "focus"],
-    "isActive": true
-  },
-  {
-    "content": "What version of yourself are you feeding right now?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["self-development", "habits"],
-    "isActive": true
-  },
-  {
-    "content": "Who are you becoming, one scroll at a time?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["identity", "consequences"],
-    "isActive": true
-  },
-  {
-    "content": "Why does more information make you feel more confused?",
-    "category": "thought",
-    "difficulty": 5,
-    "tags": ["paradox", "clarity"],
-    "isActive": true
-  },
-  {
-    "content": "Why does rest with a phone feel exhausting?",
-    "category": "thought",
-    "difficulty": 5,
-    "tags": ["paradox", "rest"],
-    "isActive": true
-  },
-  {
-    "content": "If distraction made you happy, wouldn't you feel fulfilled?",
-    "category": "thought",
-    "difficulty": 5,
-    "tags": ["paradox", "happiness"],
-    "isActive": true
-  },
-  {
-    "content": "Why do you escape when nothing is chasing you?",
-    "category": "thought",
-    "difficulty": 5,
-    "tags": ["paradox", "escape"],
-    "isActive": true
-  },
-  {
-    "content": "What if comfort is the real problem?",
-    "category": "thought",
-    "difficulty": 5,
-    "tags": ["paradox", "comfort"],
-    "isActive": true
-  },
-  {
-    "content": "What are you avoiding?",
-    "category": "thought",
-    "difficulty": 3,
-    "tags": ["silence", "avoidance"],
-    "isActive": true
-  },
-  {
-    "content": "What matters right now?",
-    "category": "thought",
-    "difficulty": 3,
-    "tags": ["silence", "priorities"],
-    "isActive": true
-  },
-  {
-    "content": "Why not focus?",
-    "category": "thought",
-    "difficulty": 3,
-    "tags": ["silence", "focus"],
-    "isActive": true
-  },
-  {
-    "content": "What are you trading your attention for?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["silence", "trade-offs"],
-    "isActive": true
-  },
-  {
-    "content": "What are you becoming?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["silence", "identity"],
-    "isActive": true
-  },
-  {
-    "content": "What problem are you here to solve?",
-    "category": "thought",
-    "difficulty": 5,
-    "tags": ["existential", "purpose"],
-    "isActive": true
-  },
-  {
-    "content": "If your life had a theme, what would it be?",
-    "category": "thought",
-    "difficulty": 5,
-    "tags": ["existential", "meaning"],
-    "isActive": true
-  },
-  {
-    "content": "What would make today feel meaningful?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["existential", "meaning"],
-    "isActive": true
-  },
-  {
-    "content": "What would you do if you weren't afraid?",
-    "category": "thought",
-    "difficulty": 5,
-    "tags": ["existential", "fear"],
-    "isActive": true
-  },
-  {
-    "content": "What deserves your full attention?",
-    "category": "thought",
-    "difficulty": 4,
-    "tags": ["existential", "priorities"],
-    "isActive": true
-  }
+  {"content": "Did you open your phone with a clear purpose, or by habit?", "category": "Scroll Interruption", "subcategory": "Scroll Interruption", "difficulty": 4, "tags": ["scrolling", "awareness", "purpose"], "isActive": true},
+  {"content": "What is the one outcome you want from this phone session?", "category": "Scroll Interruption", "subcategory": "Scroll Interruption", "difficulty": 4, "tags": ["choice", "escape", "awareness"], "isActive": true},
+  {"content": "If this session ends now, did you get what you came for?", "category": "Scroll Interruption", "subcategory": "Scroll Interruption", "difficulty": 4, "tags": ["scrolling", "expectation", "awareness"], "isActive": true},
+  {"content": "Are you choosing this intentionally, or running on autopilot?", "category": "Scroll Interruption", "subcategory": "Scroll Interruption", "difficulty": 4, "tags": ["habit", "autopilot", "awareness"], "isActive": true},
+  {"content": "What pulled your attention to your phone in the last minute?", "category": "Scroll Interruption", "subcategory": "Scroll Interruption", "difficulty": 4, "tags": ["attention", "trigger", "awareness"], "isActive": true},
+  {"content": "Are you using your phone to do something specific, or to avoid something?", "category": "Scroll Interruption", "subcategory": "Scroll Interruption", "difficulty": 4, "tags": ["avoidance", "searching", "awareness"], "isActive": true},
+  {"content": "Is this phone use helping your top priority today?", "category": "Scroll Interruption", "subcategory": "Scroll Interruption", "difficulty": 4, "tags": ["energy", "attention", "choice"], "isActive": true},
+  {"content": "What were you doing right before you switched to your phone?", "category": "Scroll Interruption", "subcategory": "Scroll Interruption", "difficulty": 4, "tags": ["distraction", "attention", "focus"], "isActive": true},
+  {"content": "Is this active use or passive consumption right now?", "category": "Scroll Interruption", "subcategory": "Scroll Interruption", "difficulty": 4, "tags": ["consumption", "time", "awareness"], "isActive": true},
+  {"content": "What would you gain if you stopped this session now?", "category": "Scroll Interruption", "subcategory": "Scroll Interruption", "difficulty": 4, "tags": ["time", "choice", "attention"], "isActive": true},
+
+  {"content": "What feeling are you trying to avoid right now?", "category": "Emotional Avoidance", "subcategory": "Emotional Avoidance", "difficulty": 4, "tags": ["emotion", "avoidance", "honesty"], "isActive": true},
+  {"content": "What happened in the last 5 minutes that made this feel urgent?", "category": "Emotional Avoidance", "subcategory": "Emotional Avoidance", "difficulty": 4, "tags": ["discomfort", "trigger", "emotion"], "isActive": true},
+  {"content": "Right now, are you bored, tired, lonely, stressed, or overwhelmed?", "category": "Emotional Avoidance", "subcategory": "Emotional Avoidance", "difficulty": 4, "tags": ["emotion", "state", "awareness"], "isActive": true},
+  {"content": "What emotion gets quieter when you stay on your phone?", "category": "Emotional Avoidance", "subcategory": "Emotional Avoidance", "difficulty": 4, "tags": ["emotion", "distraction", "avoidance"], "isActive": true},
+  {"content": "If you put your phone down for 2 minutes, what feeling remains?", "category": "Emotional Avoidance", "subcategory": "Emotional Avoidance", "difficulty": 4, "tags": ["phone", "avoidance", "reflection"], "isActive": true},
+  {"content": "What task or conversation are you delaying by staying here?", "category": "Emotional Avoidance", "subcategory": "Emotional Avoidance", "difficulty": 4, "tags": ["avoidance", "time", "honesty"], "isActive": true},
+  {"content": "What thought keeps coming back even while you're on your phone?", "category": "Emotional Avoidance", "subcategory": "Emotional Avoidance", "difficulty": 4, "tags": ["thoughts", "attention", "awareness"], "isActive": true},
+  {"content": "Are you trying to escape pressure, uncertainty, or emptiness right now?", "category": "Emotional Avoidance", "subcategory": "Emotional Avoidance", "difficulty": 4, "tags": ["pressure", "uncertainty", "emotion"], "isActive": true},
+  {"content": "What need are you hoping this session will meet?", "category": "Emotional Avoidance", "subcategory": "Emotional Avoidance", "difficulty": 4, "tags": ["habit", "emotion", "awareness"], "isActive": true},
+  {"content": "If you were fully honest, what do you need most in this moment?", "category": "Emotional Avoidance", "subcategory": "Emotional Avoidance", "difficulty": 4, "tags": ["honesty", "need", "emotion"], "isActive": true},
+
+  {"content": "What matters most in the next 30 minutes?", "category": "Intention Reset", "subcategory": "Intention Reset", "difficulty": 4, "tags": ["priority", "focus", "present"], "isActive": true},
+  {"content": "What deserves your attention more than this screen right now?", "category": "Intention Reset", "subcategory": "Intention Reset", "difficulty": 4, "tags": ["attention", "priority", "focus"], "isActive": true},
+  {"content": "What is your single priority for the rest of today?", "category": "Intention Reset", "subcategory": "Intention Reset", "difficulty": 4, "tags": ["priority", "moment", "clarity"], "isActive": true},
+  {"content": "What one action would make the next 10 minutes meaningful?", "category": "Intention Reset", "subcategory": "Intention Reset", "difficulty": 4, "tags": ["meaning", "time", "clarity"], "isActive": true},
+  {"content": "What are you postponing that matters more than this?", "category": "Intention Reset", "subcategory": "Intention Reset", "difficulty": 4, "tags": ["delay", "priority", "focus"], "isActive": true},
+  {"content": "If you reset now, what exact task will you return to?", "category": "Intention Reset", "subcategory": "Intention Reset", "difficulty": 4, "tags": ["reset", "intention", "focus"], "isActive": true},
+  {"content": "What do you want this hour to stand for?", "category": "Intention Reset", "subcategory": "Intention Reset", "difficulty": 4, "tags": ["meaning", "intention", "identity"], "isActive": true},
+  {"content": "What would your most intentional self do in the next 2 minutes?", "category": "Intention Reset", "subcategory": "Intention Reset", "difficulty": 4, "tags": ["intention", "next-step", "self-awareness"], "isActive": true},
+  {"content": "What task is waiting for your full attention right now?", "category": "Intention Reset", "subcategory": "Intention Reset", "difficulty": 4, "tags": ["task", "attention", "focus"], "isActive": true},
+  {"content": "Tonight, what would feel better: this session or one real step forward?", "category": "Intention Reset", "subcategory": "Intention Reset", "difficulty": 4, "tags": ["scrolling", "choice", "reflection"], "isActive": true},
+
+  {"content": "What is one useful action you can start in the next 60 seconds?", "category": "Tiny Action Redirect", "subcategory": "Tiny Action Redirect", "difficulty": 3, "tags": ["action", "redirect", "next-step"], "isActive": true},
+  {"content": "What action would make you feel better in 5 minutes?", "category": "Tiny Action Redirect", "subcategory": "Tiny Action Redirect", "difficulty": 3, "tags": ["action", "mood", "momentum"], "isActive": true},
+  {"content": "What can you complete before switching to another app?", "category": "Tiny Action Redirect", "subcategory": "Tiny Action Redirect", "difficulty": 3, "tags": ["action", "completion", "focus"], "isActive": true},
+  {"content": "What needs one minute of focused effort from you?", "category": "Tiny Action Redirect", "subcategory": "Tiny Action Redirect", "difficulty": 3, "tags": ["effort", "action", "focus"], "isActive": true},
+  {"content": "What tiny step would move your life forward today?", "category": "Tiny Action Redirect", "subcategory": "Tiny Action Redirect", "difficulty": 3, "tags": ["progress", "action", "momentum"], "isActive": true},
+  {"content": "What is the smallest useful next step on your top priority?", "category": "Tiny Action Redirect", "subcategory": "Tiny Action Redirect", "difficulty": 3, "tags": ["small-step", "action", "clarity"], "isActive": true},
+  {"content": "If you close your phone now, what will you start first?", "category": "Tiny Action Redirect", "subcategory": "Tiny Action Redirect", "difficulty": 3, "tags": ["scrolling", "action", "redirect"], "isActive": true},
+  {"content": "What real-world action is this moment asking from you?", "category": "Tiny Action Redirect", "subcategory": "Tiny Action Redirect", "difficulty": 3, "tags": ["real-life", "action", "awareness"], "isActive": true},
+  {"content": "What can you do next that creates progress, not just stimulation?", "category": "Tiny Action Redirect", "subcategory": "Tiny Action Redirect", "difficulty": 3, "tags": ["consumption", "action", "redirect"], "isActive": true},
+  {"content": "What can you finish in the next two minutes?", "category": "Tiny Action Redirect", "subcategory": "Tiny Action Redirect", "difficulty": 3, "tags": ["completion", "time", "action"], "isActive": true},
+
+  {"content": "What kind of person do you want this next choice to strengthen?", "category": "Identity Mirror", "subcategory": "Identity Mirror", "difficulty": 5, "tags": ["identity", "choice", "reflection"], "isActive": true},
+  {"content": "Is this action helping you become the person you want to be?", "category": "Identity Mirror", "subcategory": "Identity Mirror", "difficulty": 5, "tags": ["identity", "growth", "awareness"], "isActive": true},
+  {"content": "If someone copied your next 10 minutes, what would you want them to learn from it?", "category": "Identity Mirror", "subcategory": "Identity Mirror", "difficulty": 5, "tags": ["habits", "identity", "reflection"], "isActive": true},
+  {"content": "If you repeated this exact phone pattern for 30 days, what life would it create?", "category": "Identity Mirror", "subcategory": "Identity Mirror", "difficulty": 5, "tags": ["pattern", "life", "identity"], "isActive": true},
+  {"content": "What would your wiser self choose for the next two minutes?", "category": "Identity Mirror", "subcategory": "Identity Mirror", "difficulty": 5, "tags": ["respect", "identity", "choice"], "isActive": true},
+  {"content": "What one choice right now would train you in the direction you want?", "category": "Identity Mirror", "subcategory": "Identity Mirror", "difficulty": 5, "tags": ["identity", "choices", "habit"], "isActive": true},
+  {"content": "Are your current phone habits aligned with your values today?", "category": "Identity Mirror", "subcategory": "Identity Mirror", "difficulty": 5, "tags": ["habits", "values", "identity"], "isActive": true},
+  {"content": "Did you choose this moment on purpose, or did it happen automatically?", "category": "Identity Mirror", "subcategory": "Identity Mirror", "difficulty": 5, "tags": ["intention", "impulse", "identity"], "isActive": true},
+  {"content": "If you break autopilot now, what strength do you practice immediately?", "category": "Identity Mirror", "subcategory": "Identity Mirror", "difficulty": 5, "tags": ["identity", "awareness", "pattern"], "isActive": true},
+  {"content": "If this became your normal routine for a month, what would you change first?", "category": "Identity Mirror", "subcategory": "Identity Mirror", "difficulty": 5, "tags": ["normal", "pride", "identity"], "isActive": true},
+
+  {"content": "What is the single most important task to protect right now?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 3, "tags": ["priority", "focus", "execution"], "isActive": true},
+  {"content": "Is this action moving your key goal forward, or just filling time?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 3, "tags": ["goal", "time", "clarity"], "isActive": true},
+  {"content": "What should be on your screen right now to produce real progress?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 3, "tags": ["environment", "focus", "output"], "isActive": true},
+  {"content": "What is the next concrete step you can finish in 5 minutes?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 3, "tags": ["next-step", "action", "momentum"], "isActive": true},
+  {"content": "If you had to deliver meaningful output in one hour, what starts now?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 4, "tags": ["urgency", "output", "start"], "isActive": true},
+  {"content": "What tiny action can restart your momentum immediately?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 2, "tags": ["momentum", "restart", "small-step"], "isActive": true},
+  {"content": "What was your original work intention before this detour?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 2, "tags": ["intention", "redirect", "awareness"], "isActive": true},
+  {"content": "What would make the next 10 minutes feel like a win?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 2, "tags": ["short-block", "win", "progress"], "isActive": true},
+  {"content": "What one tab, app, or task deserves your full attention now?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 2, "tags": ["attention", "single-tasking", "clarity"], "isActive": true},
+  {"content": "What can you complete before checking anything else?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 2, "tags": ["completion", "discipline", "flow"], "isActive": true},
+  {"content": "You're closer than you think. What is the next rep of focused effort?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 4, "tags": ["motivation", "effort", "consistency"], "isActive": true},
+  {"content": "Future you will thank this choice. What useful action do you pick now?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 4, "tags": ["future-self", "choice", "action"], "isActive": true},
+  {"content": "One disciplined block can change the day. What block starts now?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 4, "tags": ["deep-work", "time-block", "discipline"], "isActive": true},
+  {"content": "What would your most productive self do in the next 3 minutes?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 4, "tags": ["identity", "productive-self", "next-step"], "isActive": true},
+  {"content": "Your goals need action, not perfect mood. What action happens now?", "category": "Stay Productive", "subcategory": "Stay Productive", "difficulty": 4, "tags": ["motivation", "action", "consistency"], "isActive": true}
 ]

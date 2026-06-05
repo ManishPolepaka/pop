@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "678938785330",
+    "project_id": "diverto-12a71",
+    "storage_bucket": "diverto-12a71.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678938785330:android:a564b8ce652f681e662e2b",
+        "android_client_info": {
+          "package_name": "com.pop.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678938785330-2c2fhjg7jhccb5hnok095bq9la7aa1vi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pop.app",
+            "certificate_hash": "d0d433eb162a043e1c0904dbdea1a2558a210bc5"
+          }
+        },
+        {
+          "client_id": "678938785330-u20d7dm2eupg5b190bq99korirpbdkqj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQbUyrqm_v8jVgxru7cpOByzA9Gu0Jy2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678938785330-u20d7dm2eupg5b190bq99korirpbdkqj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

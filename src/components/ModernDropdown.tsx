@@ -26,41 +26,40 @@ const ModernDropdown = ({
         setIsOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
-    <div ref={dropdownRef} className="relative">
+    <div ref={dropdownRef} className={`relative ${width}`}>
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`${width} h-11 bg-white border-2 border-gray-200 rounded-lg shadow-md hover:border-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition-all duration-200 flex items-center justify-between px-2 text-black font-bold text-base`}
+        className="w-full h-12 rounded-xl bg-yellow-50 border border-black/25 hover:bg-yellow-100 focus:outline-none focus:bg-yellow-100 focus:border-black/40 transition-colors duration-150 flex items-center justify-between px-3 text-black font-black text-base"
       >
         <span>{value}</span>
         <ChevronDown
-          size={18}
-          className={`transition-transform duration-300 text-gray-600 ${
-            isOpen ? "rotate-180" : ""
-          }`}
+          size={16}
+          className={`transition-transform duration-200 text-black shrink-0 ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-white border-2 border-gray-200 rounded-lg shadow-lg z-50 overflow-hidden">
+        <div className="absolute top-full left-0 right-0 mt-1 bg-yellow-50 border border-black/25 rounded-xl z-50 overflow-hidden shadow-lg">
           <div className="max-h-48 overflow-y-auto">
             {options.map((option, index) => (
               <button
+                type="button"
                 key={option}
                 onClick={() => {
                   onChange(option);
                   setIsOpen(false);
                 }}
-                className={`w-full px-3 py-2 text-left font-semibold text-base transition-all duration-150 ${
+                className={`w-full px-3 py-2.5 text-left font-bold text-base transition-colors duration-100 ${
                   value === option
-                    ? "bg-yellow-600 text-white"
-                    : "text-black hover:bg-yellow-100 hover:text-black"
-                } ${index !== options.length - 1 ? "border-b border-gray-100" : ""}`}
+                    ? "bg-black text-yellow-300"
+                    : "text-black hover:bg-yellow-100"
+                } ${index !== options.length - 1 ? "border-b border-black/10" : ""}`}
               >
                 {option}
               </button>

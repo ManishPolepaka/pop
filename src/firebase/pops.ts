@@ -16,6 +16,70 @@ import {
   QueryConstraint
 } from "firebase/firestore";
 import { POP, POPCategory } from "@/types/pop";
+export type PopIntentType = "break-distraction" | "stay-productive";
+
+const RECENT_POP_IDS_KEY = "selfPopRecentIds";
+const RECENT_POP_CATEGORY_KEY = "selfPopRecentCategory";
+const RECENT_POP_MAX = 8;
+const RECENT_POP_EXCLUDE_COUNT = 3;
+const BREAK_DISTRACTION_CATEGORIES: POPCategory[] = [
+  "Scroll Interruption",
+  "Emotional Avoidance",
+  "Intention Reset",
+  "Tiny Action Redirect",
+  "Identity Mirror",
+];
+
+const readRecentPopIds = (): string[] => {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = window.localStorage.getItem(RECENT_POP_IDS_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw) as unknown;
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((v): v is string => typeof v === "string");
+  } catch {
+    return [];
+  }
+};
+
+const writeRecentPopSelection = (id: string, category?: string) => {
+  if (typeof window === "undefined") return;
+  const existing = readRecentPopIds().filter((item) => item !== id);
+  const next = [id, ...existing].slice(0, RECENT_POP_MAX);
+  window.localStorage.setItem(RECENT_POP_IDS_KEY, JSON.stringify(next));
+  if (category) {
+    window.localStorage.setItem(RECENT_POP_CATEGORY_KEY, category);
+  }
+};
+
+const pickWithAntiRepetition = (
+  docs: Array<{ id: string; data: () => Record<string, unknown> }>
+) => {
+  if (docs.length === 0) return null;
+
+  const recent = readRecentPopIds();
+  const excluded = new Set(recent.slice(0, RECENT_POP_EXCLUDE_COUNT));
+  const lastCategory =
+    typeof window !== "undefined"
+      ? window.localStorage.getItem(RECENT_POP_CATEGORY_KEY)
+      : null;
+
+  const withoutRecent = docs.filter((doc) => !excluded.has(doc.id));
+  const withoutRecentAndCategory =
+    lastCategory && withoutRecent.length > 1
+      ? withoutRecent.filter((doc) => (doc.data().category as string | undefined) !== lastCategory)
+      : withoutRecent;
+
+  const pool =
+    withoutRecentAndCategory.length > 0
+      ? withoutRecentAndCategory
+      : withoutRecent.length > 0
+        ? withoutRecent
+        : docs;
+
+  return pool[Math.floor(Math.random() * pool.length)] ?? null;
+};
 
 /**
  * Get a random POP from the entire library
@@ -32,14 +96,18 @@ export const getRandomPOP = async (): Promise<POP | null> => {
       return null;
     }
 
-    const docs = snapshot.docs;
-    const randomPOP = docs[Math.floor(Math.random() * docs.length)];
+    const randomPOP = pickWithAntiRepetition(snapshot.docs);
+    if (!randomPOP) {
+      return null;
+    }
+    const data = randomPOP.data();
+    writeRecentPopSelection(randomPOP.id, data.category as string | undefined);
     
     return {
       id: randomPOP.id,
-      ...randomPOP.data(),
-      createdAt: randomPOP.data().createdAt?.toDate() || new Date(),
-      updatedAt: randomPOP.data().updatedAt?.toDate() || new Date(),
+      ...data,
+      createdAt: data.createdAt?.toDate() || new Date(),
+      updatedAt: data.updatedAt?.toDate() || new Date(),
     } as POP;
   } catch (error) {
     console.error("Error getting random POP:", error);
@@ -66,18 +134,64 @@ export const getRandomPOPByCategory = async (category: POPCategory): Promise<POP
       return null;
     }
 
-    const docs = snapshot.docs;
-    const randomPOP = docs[Math.floor(Math.random() * docs.length)];
+    const randomPOP = pickWithAntiRepetition(snapshot.docs);
+    if (!randomPOP) {
+      return null;
+    }
+    const data = randomPOP.data();
+    writeRecentPopSelection(randomPOP.id, data.category as string | undefined);
     
     return {
       id: randomPOP.id,
-      ...randomPOP.data(),
-      createdAt: randomPOP.data().createdAt?.toDate() || new Date(),
-      updatedAt: randomPOP.data().updatedAt?.toDate() || new Date(),
+      ...data,
+      createdAt: data.createdAt?.toDate() || new Date(),
+      updatedAt: data.updatedAt?.toDate() || new Date(),
     } as POP;
   } catch (error) {
     console.error(`Error getting random POP by category ${category}:`, error);
     return null;
+  }
+};
+
+/**
+ * Get a random POP by reminder intent
+ */
+export const getRandomPOPByIntent = async (
+  intentType: PopIntentType
+): Promise<POP | null> => {
+  try {
+    const popsRef = collection(db, "pops");
+    const categories: POPCategory[] =
+      intentType === "stay-productive" ? ["Stay Productive"] : BREAK_DISTRACTION_CATEGORIES;
+
+    const q = query(
+      popsRef,
+      where("isActive", "==", true),
+      where("category", "in", categories)
+    );
+
+    const snapshot = await getDocs(q);
+    if (snapshot.empty) {
+      return getRandomPOP();
+    }
+
+    const randomPOP = pickWithAntiRepetition(snapshot.docs);
+    if (!randomPOP) {
+      return getRandomPOP();
+    }
+
+    const data = randomPOP.data();
+    writeRecentPopSelection(randomPOP.id, data.category as string | undefined);
+
+    return {
+      id: randomPOP.id,
+      ...data,
+      createdAt: data.createdAt?.toDate() || new Date(),
+      updatedAt: data.updatedAt?.toDate() || new Date(),
+    } as POP;
+  } catch (error) {
+    console.error(`Error getting random POP by intent ${intentType}:`, error);
+    return getRandomPOP();
   }
 };
 

@@ -39,7 +39,7 @@ export const useReminders = () => {
     return () => clearInterval(interval);
   }, [reminders, activeNotification]);
 
-  const addReminder = useCallback((time: { type: "recurring" | "one-time"; value: string; interval?: number } | string) => {
+  const addReminder = useCallback((time: { type: "recurring" | "schedule"; value: string; interval?: number } | string) => {
     const timeValue = typeof time === "string" ? time : time.value;
     const newReminder: Reminder = {
       id: Date.now().toString(),

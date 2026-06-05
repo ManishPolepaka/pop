@@ -1,0 +1,60 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper: check if the requesting user has role="admin" in their user doc
+    function isAdmin() {
+      return request.auth != null &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin";
+    }
+
+    // Self-improvement POPs - public read, no client writes
+    match /pops/{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // User profiles - any authenticated user can read; only owner can write
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth.uid == userId;
+
+      // PRIVATE DIAGNOSTICS - owner only
+      match /diagnostics/{diagnosticId} {
+        allow read, write: if request.auth.uid == userId;
+      }
+
+      // PRIVATE TIMELINE - owner only
+      match /insightTimeline/{timelineId} {
+        allow read, write: if request.auth.uid == userId;
+      }
+
+      // PRIVATE RELATIONSHIPS - owner only
+      match /insightRelationships/{relationshipId} {
+        allow read, write: if request.auth.uid == userId;
+      }
+
+      // REMINDERS - owner only
+      match /reminders/{reminderId} {
+        allow read, write: if request.auth.uid == userId;
+      }
+
+      // All other subcollections - owner only
+      match /{document=**} {
+        allow read, write: if request.auth.uid == userId;
+      }
+    }
+
+    // Feedback - any authenticated user can submit; only admins can read
+    match /feedback/{feedbackId} {
+      allow create: if request.auth != null;
+      allow read: if isAdmin();
+    }
+
+    // Deny everything else
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+

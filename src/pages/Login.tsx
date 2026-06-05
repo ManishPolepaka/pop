@@ -1,7 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { logIn, signInWithGoogle } from "@/firebase/auth";
-import { Mail, Lock, LogIn as LogInIcon, Loader, ArrowLeft } from "lucide-react";
+import {
+  consumeGoogleAuthFlow,
+  isNewGoogleUser,
+  logIn,
+  signInWithGoogle,
+} from "@/firebase/auth";
+import { useAuth } from "@/contexts/AuthContext";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "@/firebase/config";
+import { Mail, Lock, LogIn as LogInIcon, Loader } from "lucide-react";
+
+const getRoleForUser = async (uid: string) => {
+  const userDoc = await getDoc(doc(db, "users", uid));
+  if (!userDoc.exists()) {
+    return "user";
+  }
+
+  return (userDoc.data().role as string | undefined) ?? "user";
+};
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -9,6 +26,24 @@ const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { user, role, loading: authLoading } = useAuth();
+
+  useEffect(() => {
+    if (authLoading || !user) return;
+
+    const pendingFlow = consumeGoogleAuthFlow();
+    if (pendingFlow === "signup" || (pendingFlow === "login" && isNewGoogleUser(user))) {
+      navigate("/username-setup", { replace: true });
+      return;
+    }
+
+    if (role === "admin") {
+      navigate("/admin/feedback", { replace: true });
+      return;
+    }
+
+    navigate("/main", { replace: true });
+  }, [authLoading, navigate, role, user]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,8 +51,15 @@ const Login = () => {
     setLoading(true);
 
     try {
-      await logIn(email, password);
-      navigate("/main", { replace: true });
+      const signedInUser = await logIn(email, password);
+      if (!signedInUser) {
+        throw new Error("Login failed");
+      }
+
+      const signedInRole = await getRoleForUser(signedInUser.uid);
+      navigate(signedInRole === "admin" ? "/admin/feedback" : "/main", {
+        replace: true,
+      });
     } catch (err) {
       const error = err as Error & { code?: string };
       const errorCode = (error as Record<string, unknown>).code as string | undefined;
@@ -37,20 +79,20 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const result = await signInWithGoogle();
-      if (result) {
-        // If new user (no username yet), go to username setup
-        // If returning user (has username), go directly to main
-        if (result.isNew) {
-          console.log("New Google user detected - going to username setup");
-          navigate("/username-setup", { replace: true });
-        } else {
-          console.log("Returning Google user - going directly to main");
-          navigate("/main", { replace: true });
-        }
+      const result = await signInWithGoogle("login");
+      if (!result) {
+        return;
+      }
+
+      if (result.isNew) {
+        console.log("New Google user detected - going to username setup");
+        navigate("/username-setup", { replace: true });
       } else {
-        setError("Google sign-in failed");
-        setLoading(false);
+        const signedInRole = await getRoleForUser(result.user.uid);
+        console.log("Returning Google user - routing by role:", signedInRole);
+        navigate(signedInRole === "admin" ? "/admin/feedback" : "/main", {
+          replace: true,
+        });
       }
     } catch (err) {
       const error = err as Error;
@@ -67,20 +109,12 @@ const Login = () => {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-black/5 rounded-full blur-3xl opacity-20" />
       </div>
 
-      {/* Back Button */}
-      <button
-        onClick={() => navigate("/")}
-        className="fixed top-6 left-6 flex items-center justify-center h-10 w-10 bg-white/20 hover:bg-white/40 transition-all duration-300 group font-bold z-50 border-2 border-black"
-      >
-        <ArrowLeft className="h-5 w-5 text-black group-hover:translate-x-1 transition-transform" />
-      </button>
-
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
         <div className="w-full max-w-md">
 
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-5xl font-black text-black mb-2">Diverto</h1>
+            <h1 className="text-5xl font-black text-black mb-2">Pop</h1>
             <p className="text-black/70 text-lg">Manage your reminders efficiently</p>
           </div>
 

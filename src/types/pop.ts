@@ -4,17 +4,18 @@
  */
 
 export type POPCategory = 
-  | "motivation" 
-  | "funny" 
-  | "wellness" 
-  | "thought" 
-  | "fact" 
-  | "gratitude";
+  | "Scroll Interruption"
+  | "Emotional Avoidance"
+  | "Intention Reset"
+  | "Tiny Action Redirect"
+  | "Identity Mirror"
+  | "Stay Productive";
 
 export interface POP {
   id: string;
   content: string;
   category: POPCategory;
+  subcategory?: string;
   difficulty: 1 | 2 | 3 | 4 | 5;  // 1 = easy/light, 5 = complex/deep
   tags: string[];
   authorId?: string;  // For user-generated POPs later
@@ -46,10 +47,10 @@ export interface POPDeliveryHistory {
 }
 
 export const POP_CATEGORIES: Record<POPCategory, string> = {
-  motivation: "🚀 Motivation",
-  funny: "😄 Funny",
-  wellness: "🧘 Wellness",
-  thought: "💭 Thought-provoking",
-  fact: "🧠 Interesting Facts",
-  gratitude: "🙏 Gratitude",
+  "Scroll Interruption": "📵 Scroll Interruption",
+  "Emotional Avoidance": "🫥 Emotional Avoidance",
+  "Intention Reset": "🎯 Intention Reset",
+  "Tiny Action Redirect": "⚡ Tiny Action Redirect",
+  "Identity Mirror": "🪞 Identity Mirror",
+  "Stay Productive": "🚀 Stay Productive",
 };

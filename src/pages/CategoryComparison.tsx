@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Loader, ArrowRight, ChevronLeft } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { getCategoryDiagnostics } from "@/firebase/diagnostics";
-import diagnosticsData from "../../public/insight-diagnostics.json";
+import diagnosticsData from "@/data/insight-diagnostics.json";
 
 interface DiagnosticData {
   id: string;

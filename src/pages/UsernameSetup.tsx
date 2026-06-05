@@ -58,9 +58,9 @@ const UsernameSetup = () => {
         username: username.toLowerCase(), // Store lowercase for consistency
         email: user.email || "",
         displayName: username,
+        role: "user",
         status: "online",
         createdAt: new Date(),
-        friends: [],
       };
 
       console.log("📝 Saving username to Firestore...");
@@ -130,7 +130,7 @@ const UsernameSetup = () => {
         <div className="w-full max-w-md">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-5xl font-black text-black mb-2">Diverto</h1>
+            <h1 className="text-5xl font-black text-black mb-2">Pop</h1>
             <p className="text-black/70 text-lg">Choose your username</p>
           </div>
 
